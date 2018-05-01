@@ -1,3 +1,9 @@
+echo "installing neovim"
+echo "*****************"
+sudo apt install neovim python-neovim python3-neovim
+
+# sudo dnf install neovim python-neovim python3-neovim
+
 echo "creating directories"
 echo "********************"
 mkdir -p ~/.config/nvim/plugged
