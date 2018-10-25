@@ -1,4 +1,4 @@
-APT_INSTALL=sudo apt-get install
+APT_INSTALL=sudo apt install
 MKDIR=mkdir -p
 CURL=curl -fLo
 CP=cp
@@ -7,6 +7,7 @@ CP=cp
 
 install_neo_deps:
 	$(APT_INSTALL) neovim python-neovim python3-neovim fonts-powerline curl
+	# sudo dnf install neovim python-neovim python3-neovim powerline-fonts curl
 
 neovim: install_neo_deps
 	$(MKDIR) ~/.config/nvim/plugged

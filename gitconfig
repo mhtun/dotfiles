@@ -1,0 +1,17 @@
+[user]
+	name = Min Tun
+	email = mtun.barrukka.local
+[push]
+	default = simple
+[merge]
+        tool = vimdiff3
+	conflictstyle = diff3
+[mergetool]
+        prompt = false
+[mergetool "vimdiff3"]
+        cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff]
+        tool = nvimdiff
+[difftool "nvimdiff"]
+        prompt = false
+        cmd = nvim -d $LOCAL $REMOTE
