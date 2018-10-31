@@ -6,8 +6,8 @@ CP=cp
 .PHONY: all neovim install_venv_deps
 
 install_neo_deps:
-	$(APT_INSTALL) neovim python-neovim python3-neovim fonts-powerline curl
-	# sudo dnf install neovim python-neovim python3-neovim powerline-fonts curl
+	$(APT_INSTALL) neovim python-neovim python3-neovim fonts-powerline curl plantuml
+	# sudo dnf install neovim python-neovim python3-neovim powerline-fonts curl plantuml
 
 neovim: install_neo_deps
 	$(MKDIR) ~/.config/nvim/plugged

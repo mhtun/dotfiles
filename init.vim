@@ -68,7 +68,13 @@ nnoremap <leader>gc :Gread<CR>
 nnoremap <leader>t :Term<CR>
 nnoremap <leader>vt :VTerm<CR>
 
+nnoremap <leader>pl :!plantuml %<CR><CR>
+
 cmap w!! w !sudo tee > /dev/null %
 
 " makefile
 autocmd FileType make setlocal ts=2 noexpandtab
+
+if &diff
+    colorscheme solarized
+endif
