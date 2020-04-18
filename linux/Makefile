@@ -1,26 +1,31 @@
-APT_INSTALL=sudo apt install
+APT_INSTALL=sudo apt-get install -y
 CP=cp
 
-.PHONY: all build git python
+.PHONY: all build git python powerline
 
 build:
-  APT_INSTALL build-essential
+	$(APT_INSTALL) build-essential
+
+vim:
+	$(APT_INSTALL) vim
 
 python:
-  APT_INSTALL python3 python3-pip
-  pip3 install powerline-shell
-  CP bashrc ~/.bashrc
+	$(APT_INSTALL) python3 python3-pip
 
-git:
-  APT_INSTALL git
-  git config --global user.name "Min Tun"
-  git config --global user.email "minhantun@gmail.com"
+powerline: python
+	pip3 install powerline-shell
+	$(CP) bashrc ~/.bashrc
 
-  git config --global core.editor vim
-  git config --global diff.tool vimdiff
-  git config --global merge.tool vimdiff
-  git config --global merge.conflictstyle diff3
-  git config --global mergetool.prompt false
+git: vim
+	$(APT_INSTALL) git
+	git config --global user.name "Min Tun"
+	git config --global user.email "minhantun@gmail.com"
+
+	git config --global core.editor vim
+	git config --global diff.tool vimdiff
+	git config --global merge.tool vimdiff
+	git config --global merge.conflictstyle diff3
+	git config --global mergetool.prompt false
 
 
-all: build git python
+all: build git powerline
