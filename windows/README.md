@@ -1,6 +1,7 @@
 # Steps
 
-1. Install Visual Studio Code.
+1. Download Visual Studio Code User Installer to your Downloads folder.
 2. Install Windows Terminal from app store.
-3. run `.\install.ps1` This will restart the computer when it is done.
-4. Install Ubuntu from app store
+3. Install Ubuntu from app store
+4. run this in an administrator powershell. `.\install.ps1 -VSCodeInstaller "$Home\Downloads\VSCodeUserSetup-x64-<downloaded version>.exe"` 
+5. Computer will be automatically restarted
