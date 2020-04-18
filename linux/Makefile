@@ -1,10 +1,12 @@
-APT_INSTALL=sudo apt-get install -y
+APT_INSTALL=apt-get install -y
+APT_ADD=add-apt-repository
 CP=cp
+CURL=curl -fsSL
 
 .PHONY: all build git python powerline
 
 build:
-	$(APT_INSTALL) build-essential
+	$(APT_INSTALL) build-essential docker
 
 vim:
 	$(APT_INSTALL) vim
@@ -27,5 +29,13 @@ git: vim
 	git config --global merge.conflictstyle diff3
 	git config --global mergetool.prompt false
 
+docker:
+	$(APT_INSTALL) apt-transport-https ca-certificates curl software-properties-common
+	$(CURL) https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+	$(APT_ADD) "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+	apt update
+	$(APT_INSTALL) docker-ce
+	usermod -aG docker ${USER}
 
-all: build git powerline
+
+all: build git powerline docker
