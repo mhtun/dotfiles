@@ -1,3 +1,9 @@
+param(
+    # Full path and name to visual studio installer
+    [Parameter(Mandatory=$true)]
+    [String]$VSCodeInstaller
+)
+
 $ErrorActionPreference = 'Stop'
 
 # Shamelessly stolen from powershellgallery.com
@@ -14,8 +20,6 @@ Function Install-Font {
         installation will trigger a GUI dialogue requesting confirmation to overwrite the installed
         font, breaking unattended and CLI-only scenarios.
     #>
-
-    [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$true)]
         [String]$FontPath,
@@ -59,7 +63,7 @@ Function Install-Font {
     }
 }
 
-Function Setup-Powerline {
+Function Install-Powerline {
     # install git posh and oh-my-posh for powerline
     Write-Host "Installing posh-git"
     #Install-Module posh-git -Scope CurrentUser
@@ -72,31 +76,68 @@ Function Setup-Powerline {
     Install-Font powerline_fonts
 }
 
-Function Setup-PowershellProfile {
+Function Install-PowershellProfile {
     Write-Host "Installing Powershell Profile"
-    $destination_path = $HOME\Documents\WindowsPowerShell\ 
+    $destination_path = $HOME + '\Documents\WindowsPowerShell\'
+
     # copy profile file to my user
-    Copy-Item powershell\Microsoft.PowerShell_profile.ps1 $desitnation_path
+    Copy-Item -Path "powershell\Microsoft.PowerShell_profile.ps1" -Destination $destination_path -Force
 }
 
-Function Setup-WindowsTerminalProfile{
+Function Install-WindowsTerminalProfile{
     Write-Host "Installing Windows Terminal (Preview) profile"
+    $app_data = [Environment]::GetFolderPath([Environment+SpecialFolder]::LocalApplicationData)
+    $destination_path = "$app_data\packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\"
+    # copy windows terminal profile
+    Copy-Item "windows_terminal\profiles.json" -Destination $destination_path  -Force
+}
+
+Function Install-VSCode{
+    param(
+        [String] $VSCodeInstaller
+    )
+
+    Invoke-Installer $VSCodeInstaller
+
+    Write-Host "Applying Visual Studio Code settings"
     $app_data = [Environment]::GetFolderPath([Environment+SpecialFolder]::ApplicationData)
     # copy windows terminal profile
-    Copy-Item windows_terminal\profiles.json ${local_app_data}\packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
+    Copy-Item -Path "vscode\settings.json" -Destination "$app_data\Code\User\settings.json" -Force
 }
 
-Function Enable-Linux {
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+Function Invoke-Installer {
+    param(
+        [String] $VSCodeInstaller
+    )
+    Write-Host $VSCodeInstaller
+    if (Test-Path $VSCodeInstaller) {
+        Write-Host "Installing Visual Studio Code"
+        $installProcess = Start-Process -FilePath $VSCodeInstaller -ArgumentList "/VERYSILENT","/MERGETASKS=!runcode" -PassThru
+
+        # TODO: Figure out how to get actual progress
+        for ($i = 0; $i -le 100; $i = ($i + 1) % 100){
+            Write-Progress -Activity "VSCode Installer" -PercentComplete $i -Status "Installing"
+            Start-Sleep -Milliseconds 200
+            if ($installProcess.HasExited) {
+                Write-Progress -Activity "VSCode Installer" -Completed
+                break
+            }
+        }
+    }
+    else {
+        Write-Host "Visual Studio Code installer not found. Skipping Install."
+    }
+
 }
 
 # Setup Editors and shells
-Setup-Powerline
-Setup-PowershellProfile
-Setup-WindowsTerminalProfile
+Install-Powerline
+Install-PowershellProfile
+Install-WindowsTerminalProfile
+Install-VSCode $VSCodeInstaller
 
 # Enable Windows features
-Enable-Linux
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
 
 # Restart computer
 Restart-Computer
