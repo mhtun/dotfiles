@@ -6,7 +6,7 @@ CURL=curl -fsSL
 .PHONY: all build git python powerline
 
 build:
-	$(APT_INSTALL) build-essential docker
+	$(APT_INSTALL) build-essential 
 
 vim:
 	$(APT_INSTALL) vim
