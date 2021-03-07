@@ -31,25 +31,45 @@ set shiftwidth=4
 set ai
 set si
 set nowrap
+set autoindent
+set fileformat=unix
+
+" set python file formatting
+au BufNewFile,BufRead *.py
+   \ set tabstop=4
+   \ set softtabstop=4
+   \ set shiftwidth=4
+   \ set textwidth=159 " 80 characters is too small for mordern monitors.
 
 " Vim Plug
 call plug#begin('~/.vim/plugged')
+    " serach plugins
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    " linters
     Plug 'dense-analysis/ale'
     Plug 'puremourning/vimspector'
+    " code snippets
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'ayu-theme/ayu-vim'
+    " colour theme
     Plug 'lifepillar/vim-solarized8'
+    " autocomplete
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/async.vim'
     Plug 'dense-analysis/ale'
+    " powerline bar
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    " general vim things
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-surround'
+    " c#
     Plug 'OmniSharp/omnisharp-vim'
+    " python
+    Plug 'vim-scripts/indentpython.vim'
+    " Git integration
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " FZF
@@ -79,11 +99,11 @@ let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_force_refresh_on_context_changed = 1
 
-" Nerd Tree
+" NerdTree File Explorer
 nnoremap <Leader>t :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
 
-" ALE
+" ALE Linter
 let g:ale_linters = { 'cs' : ['OmniSharp'] }
 let g:ale_sign_column_always = 1
 let g:ale_virtualtext_cursor = 1
@@ -91,7 +111,7 @@ let g:ale_echo_cursor = 0
 " let g:ale_sign_error = '❌'
 " let g:ale_sign_warning = '⚠️'
 
-" Omnisharp
+" Omnisharp C# commands
 autocmd BufWritePre *.cs :OmniSharpCodeFormat
 
 let g:omnicomplete_fetch_full_documentation = 1
@@ -121,3 +141,8 @@ augroup omnisharp_commands
     autocmd FileType cs nmap <silent> <buffer> <Leader>cf <Plug>(omnisharp_code_format)
     autocmd FileType cs nmap <silent> <buffer> <Leader>b :!dotnet build<CR>
 augroup END
+
+" git
+nnoremap <buffer> <silent> <leader>gb :Git blame<CR>
+nnoremap <buffer> <silent> <leader>ga :Git add<CR>
+
