@@ -36,9 +36,9 @@ set fileformat=unix
 
 " set python file formatting
 au BufNewFile,BufRead *.py
-   \ set tabstop=4
-   \ set softtabstop=4
-   \ set shiftwidth=4
+   \ set tabstop=4 |
+   \ set softtabstop=4 |
+   \ set shiftwidth=4 |
    \ set textwidth=159 " 80 characters is too small for mordern monitors.
 
 " Vim Plug
@@ -68,6 +68,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'OmniSharp/omnisharp-vim'
     " python
     Plug 'vim-scripts/indentpython.vim'
+    Plug 'davidhalter/jedi-vim'
     " Git integration
     Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -136,7 +137,7 @@ augroup omnisharp_commands
     autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
     autocmd FileType cs nmap <silent> <buffer> <Leader>fu <Plug>(omnisharp_fix_usings)
     autocmd FileType cs nmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)
-    autocmd FileType cs imap <silent> <buffer> <Leader>cn <Plug>(omnisharp_rename)
+    autocmd FileType cs imap <silent> <buffer> <Leader>rn <Plug>(omnisharp_rename)
     autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
     autocmd FileType cs nmap <silent> <buffer> <Leader>cf <Plug>(omnisharp_code_format)
     autocmd FileType cs nmap <silent> <buffer> <Leader>b :!dotnet build<CR>
@@ -146,3 +147,9 @@ augroup END
 nnoremap <buffer> <silent> <leader>gb :Git blame<CR>
 nnoremap <buffer> <silent> <leader>ga :Git add<CR>
 
+"jedi-vim python
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#goto_definitions_command = "<leader>gd"
+let g:jedi#documentation_command="<leader>doc"
+let g:jedi#usages_command="<leader>u"
+let g:jedi#rename_command="<leader>rn"
