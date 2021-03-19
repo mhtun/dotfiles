@@ -21,7 +21,7 @@ python:
 	$(APT_INSTALL) python3 python3-pip
 
 powerline: python
-	$(APT_INSTALL) powerline
+	$(APT_INSTALL) powerline fonts-powerline
 	$(CP) bashrc ~/.bashrc
 	source ~/.bashrc
 
