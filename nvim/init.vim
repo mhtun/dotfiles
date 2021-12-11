@@ -39,7 +39,7 @@ call plug#begin(data_dir . '/plugins')
 
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/editorconfig.vim
-source ~/.config/nvim/plugins/dracula.vim
+source ~/.config/nvim/plugins/nightfox.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/nerdtree.vim
