@@ -1,0 +1,11 @@
+[core]
+    editor = vim
+[diff]
+    tool = vimdiff
+[fetch]
+    prune = true
+[merge]
+    conflictstyle = diff3
+    tool = vimdiff
+[init]
+    defaultBranch = main
