@@ -1,0 +1,7 @@
+- clean: [
+    '~'
+]
+
+- link:
+    ~/.config/nvim: nvim
+    ~/.gitconfig: gitconfig
