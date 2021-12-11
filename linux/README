@@ -1,4 +1,0 @@
-#Steps
-
-1. Install make by running `sudo apt install make`
-2. Install everything else with `make all`
