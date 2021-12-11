@@ -3,6 +3,7 @@
 ]
 
 - link:
+    ~/.bashrc: bashrc
     ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
     ~/.config/kitty: kitty
