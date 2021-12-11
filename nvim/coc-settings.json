@@ -1,0 +1,17 @@
+{
+    "coc.preferences.excludeImageLinksInMarkdownDocument": "daily",
+    "coc.preferences.formatOnType": true,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.enableMessage": "jump",
+    "diagnostic.errorSign": "*",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "•",
+    "diagnostic.hintSign": "•",
+    "git.enableGutters": true,
+    "git.addedSign.text": "┃",
+    "git.changedSign.text": "┃",
+    "git.removedSign.text": "▁",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▔"
+}
