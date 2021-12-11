@@ -45,6 +45,7 @@ source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/whichkey.vim
 source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/vimspector.vim
 
 call plug#end()
 doautocmd User PlugLoaded
