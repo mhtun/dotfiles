@@ -10,6 +10,7 @@ set termguicolors
 set ignorecase
 set smartcase
 set splitright
+set colorcolumn=100
 
 "-----------------------------------
 " Key Maps
