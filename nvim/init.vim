@@ -39,6 +39,7 @@ source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/dracula.vim
 source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/fugitive.vim
 
 call plug#end()
 doautocmd User PlugLoaded
