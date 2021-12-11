@@ -42,6 +42,7 @@ source ~/.config/nvim/plugins/dracula.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/nerdtree.vim
+source ~/.config/nvim/plugins/whichkey.vim
 
 call plug#end()
 doautocmd User PlugLoaded
