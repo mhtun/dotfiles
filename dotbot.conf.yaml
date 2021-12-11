@@ -5,3 +5,4 @@
 - link:
     ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
+    ~/.config/kitty: kitty
