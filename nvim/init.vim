@@ -37,6 +37,7 @@ call plug#begin(data_dir . '/plugins')
 
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/editorconfig.vim
+source ~/.config/nvim/plugins/dracula.vim
 
 call plug#end()
 doautocmd User PlugLoaded
