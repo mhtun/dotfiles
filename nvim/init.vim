@@ -48,6 +48,7 @@ source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/vimspector.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/floaterm.vim
+source ~/.config/nvim/plugins/dracula.vim
 
 call plug#end()
 doautocmd User PlugLoaded
