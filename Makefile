@@ -9,7 +9,7 @@ USER?=mintun
 SHELL:=/bin/bash
 FishSHELL:=/usr/bin/fish
 
-.PHONY: all build python nvim astronvim fish
+.PHONY: all build python nvim astronvim fish starship
 
 build_tools:
 	$(APT_INSTALL) build-essential python3-neovim
@@ -27,7 +27,7 @@ fish:
 starship:
 	curl -sS https://starship.rs/install.sh | sh
 
-astronvim:
+astronvim: nvim
 	git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 	nvim +PackerSync
