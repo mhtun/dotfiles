@@ -11,7 +11,7 @@ SHELL:=/bin/bash
 .PHONY: all build git python powerline nvim
 
 build_tools:
-	$(APT_INSTALL) build-essential python3-neovim ripgrep
+	$(APT_INSTALL) build-essential python3-neovim
 
 nvim:
 	$(APT_ADD) ppa:neinstall -yovim-ppa/unstable

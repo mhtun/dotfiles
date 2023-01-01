@@ -4,7 +4,6 @@
 
 - link:
     ~/.bashrc: bashrc
-    ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
     ~/.config/kitty: kitty
     ~/.local/share/nvim/site/plugins/vimspector/configurations/linux: nvim/plugins/vimspectorconf/linux
