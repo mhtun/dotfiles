@@ -19,6 +19,13 @@ nvim:
 	$(APT_INSTALL) neovim
 	$(MAKEDIR) /home/$(USER)/.config/nvim/
 
+fish:
+	$(APT_INSTALL) fish
+	cshsh -s $(which fish)
+
+starship:
+	curl -sS https://starship.rs/install.sh | sh
+
 kitty:
 	$(APT_INSTALL) kitty
 	$(MAKEDIR) /home/$(USER)/.config/kitty/
@@ -30,4 +37,4 @@ dotbot: python
 	$(PIP_INSTALL) dotbot
 	dotbot -c dotbot.conf.yaml
 
-all: build_tools git dotbot
+all: build_tools git kitty starship fish dotbot

@@ -6,4 +6,5 @@
     ~/.bashrc: bashrc
     ~/.gitconfig: gitconfig
     ~/.config/kitty: kitty
-    ~/.local/share/nvim/site/plugins/vimspector/configurations/linux: nvim/plugins/vimspectorconf/linux
+    ~/.config/fish/config.fish: fish
+    ~/.config/starship.toml: starship/starship.toml
