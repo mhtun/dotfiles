@@ -7,8 +7,9 @@ CURL=curl -fLo
 MAKEDIR=mkdir -p
 USER?=mintun
 SHELL:=/bin/bash
+FishSHELL:=/usr/bin/fish
 
-.PHONY: all build git python powerline nvim
+.PHONY: all build python nvim astronvim fish
 
 build_tools:
 	$(APT_INSTALL) build-essential python3-neovim
@@ -21,7 +22,7 @@ nvim:
 
 fish:
 	$(APT_INSTALL) fish
-	cshsh -s $(which fish)
+	chsh -s $(FishSHELL)
 
 starship:
 	curl -sS https://starship.rs/install.sh | sh
@@ -42,4 +43,4 @@ dotbot: python
 	$(PIP_INSTALL) dotbot
 	dotbot -c dotbot.conf.yaml
 
-all: build_tools git kitty starship fish dotbot astronvim
+all: build_tools kitty starship fish astronvim
