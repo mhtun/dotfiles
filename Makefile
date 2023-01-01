@@ -26,6 +26,11 @@ fish:
 starship:
 	curl -sS https://starship.rs/install.sh | sh
 
+astromvim: nvim
+	git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	nvim +PackerSync
+
 kitty:
 	$(APT_INSTALL) kitty
 	$(MAKEDIR) /home/$(USER)/.config/kitty/
@@ -37,4 +42,4 @@ dotbot: python
 	$(PIP_INSTALL) dotbot
 	dotbot -c dotbot.conf.yaml
 
-all: build_tools git kitty starship fish dotbot
+all: build_tools git kitty starship fish dotbot astronvim

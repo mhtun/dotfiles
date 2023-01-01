@@ -7,4 +7,5 @@
     ~/.gitconfig: gitconfig
     ~/.config/kitty: kitty
     ~/.config/fish/config.fish: fish
+    ~/.config/nvim/lua/user: astronvim
     ~/.config/starship.toml: starship/starship.toml
