@@ -15,10 +15,9 @@ build_tools:
 	$(APT_INSTALL) build-essential python3-neovim
 
 nvim:
-	$(APT_ADD) ppa:neinstall -yovim-ppa/unstable
-	$(APT_UPDATE)
-	$(APT_INSTALL) neovim
-	$(MAKEDIR) /home/$(USER)/.config/nvim/
+	$(CURL) nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	chmod u+x nvim.appimage
+	sudo mv nvim.appimage /usr/bin/nvim
 
 fish:
 	$(APT_INSTALL) fish
