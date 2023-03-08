@@ -222,6 +222,7 @@ local config = {
 
                         { "EdenEast/nightfox.nvim" },
                         { "mortepau/codicons.nvim" },
+                        { "carlsmedstad/vim-bicep" },
                         -- You can also add new plugins here as well:
                         -- Add plugins, the packer syntax without the "use"
                         -- { "andweeb/presence.nvim" },
