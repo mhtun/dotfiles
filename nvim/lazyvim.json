@@ -1,0 +1,14 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.ai.claudecode",
+    "lazyvim.plugins.extras.ai.copilot-native",
+    "lazyvim.plugins.extras.editor.neo-tree",
+    "lazyvim.plugins.extras.lang.dotnet",
+    "lazyvim.plugins.extras.lang.python"
+  ],
+  "install_version": 8,
+  "news": {
+    "NEWS.md": "10960"
+  },
+  "version": 8
+}

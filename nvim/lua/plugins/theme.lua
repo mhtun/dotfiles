@@ -1,0 +1,1 @@
+/home/mtun/.config/omarchy/current/theme/neovim.lua
