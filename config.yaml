@@ -23,3 +23,5 @@ profiles:
     - d_hypr
     - d_nvim
     - d_waybar
+variables:
+  editor: nvim
