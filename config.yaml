@@ -1,0 +1,25 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
+profiles:
+  piccard:
+    dotfiles:
+    - d_hypr
+    - d_nvim
+    - d_waybar
