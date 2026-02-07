@@ -18,7 +18,7 @@ dotfiles:
     src: config/waybar
     dst: ~/.config/waybar
 profiles:
-  piccard:
+  laptop:
     dotfiles:
     - d_hypr
     - d_nvim
