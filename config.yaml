@@ -25,3 +25,5 @@ profiles:
     - d_waybar
 variables:
   editor: nvim
+  gdk_scale: 1
+  monitor_scale: 1
