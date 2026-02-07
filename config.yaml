@@ -26,4 +26,4 @@ profiles:
 variables:
   editor: nvim
   gdk_scale: 1
-  monitor_scale: 1
+  monitor_scale: 2
