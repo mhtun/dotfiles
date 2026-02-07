@@ -27,3 +27,4 @@ variables:
   editor: nvim
   gdk_scale: 1
   monitor_scale: 2
+  samsung_scale: 1
